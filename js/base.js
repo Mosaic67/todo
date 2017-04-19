@@ -29,10 +29,15 @@
     }
 
     function listen_task_detail() {
+        var index;
+        $('.task-item').on('dblclick', function() {
+            index = $(this).data('index');
+            show_task_detail(index);
+        });
         $task_detail_trigger.on('click', function() {
             var $this = $(this);
             var $item = $this.parent().parent();
-            var index = $item.data('index');
+            index = $item.data('index');
             show_task_detail(index);
         });
     }
