@@ -9,7 +9,8 @@
         current_index,
         $update_form,
         $task_detail_content,
-        $task_detail_content_input
+        $task_detail_content_input,
+        $checkbox_complete
     ;
 
     init();
@@ -42,6 +43,15 @@
         });
     }
 
+    function listen_checkbox_complete() {
+        $checkbox_complete.on('click', function() {
+            var $this = $(this);
+            var is_complete = $this.is(':checked');
+            var index = $this.parent().parent().data('index');
+            update_task(index, {complete: is_complete});
+        });
+    }
+
     function show_task_detail(index) {
         render_task_detail(index);
         current_index = index;
@@ -51,7 +61,7 @@
 
     function update_task(index, data) {
         if (index === undefined || !task_list[index]) return;
-        task_list[index] = data;
+        task_list[index] = $.extend({}, task_list[index], data);
         refresh_task_list();
     }
 
@@ -140,21 +150,36 @@
     function render_task_list() {
         var $task_list = $('.task-list');
         $task_list.html('');
+        var complete_items = [];
         for (var i = 0; i < task_list.length; i++) {
-            var $task = render_task_item(task_list[i], i);
-            $task_list.prepend($task);
+            var item = task_list[i];
+            if (item && item.complete) {
+                complete_items[i] = item;
+            } else {
+                var $task = render_task_item(item, i);
+                $task_list.prepend($task);
+            }
+        }
+
+        for (var j = 0; j < complete_items.length; j++) {
+            $task = render_task_item(complete_items[j], j);
+            if (!$task) continue;
+            $task.addClass('completed');
+            $task_list.append($task);
         }
         $task_delete_trigger = $('.action.delete');
         $task_detail_trigger = $('.action.detail');
+        $checkbox_complete = $('.task-list .complete');
         listen_task_delete();
         listen_task_detail();
+        listen_checkbox_complete();
     }
 
     function render_task_item(data, index) {
         if (!data || !index) return;
         var list_item_tpl =
             '<div class="task-item" data-index="' + index + '">' +
-            '<span><input type="checkbox"></span>' +
+            '<span><input class="complete " ' + (data.complete ? 'checked' : '') + ' type="checkbox"></span>' +
             '<span class="task-content">' + data.content + '</span>' +
             '<span class="fr">' +
             '<span class="action delete"> 删除</span>' +

@@ -167,4 +167,20 @@ h1 {
     margin-left: 10px;
 }
 
+.task-item.completed {
+    opacity: .4;
+    color: #aaa;
+}
+.task-item.completed:after {
+    content: "";
+    height: 1px;
+    width: 96%;
+    float: right;
+    background: #aaa;
+    position: relative;
+    top: -8px;
+    display: block;
+}
+
+
 
