@@ -1,0 +1,143 @@
+* {
+    box-sizing: border-box;
+    transition: all .2s;
+    outline: 0;
+}
+
+body {
+    background: #1d8698;
+    color: #fff;
+}
+
+input,
+.task-item,
+.task-detail-mask,
+textarea,
+button {
+    padding: 10px;
+    border-radius: 5px;
+}
+
+textarea,
+button,
+input[type=text],
+input[type=date] {
+    border: 0;
+}
+
+
+textarea,
+input[type=text],
+input[type=date] {
+    width: 100%;
+    display: block;
+    background: #ddd;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, .3);
+}
+
+textarea {
+    min-height: 100px;
+}
+
+textarea:hover,
+textarea:focus,
+input[type=text]:hover,
+input[type=text]:focus,
+input[type=date]:hover,
+input[type=date]:focus {
+    background: #eee;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, .2);
+
+}
+
+button {
+    display: inline-block;
+    cursor: pointer;
+    color: #333;
+}
+
+.add-task input[type=text] {
+    float: left;
+    width: 84%;
+    margin-right: 1%;
+}
+
+.add-task [type=submit] {
+    width: 15%;
+    background: #46b1e4;
+}
+
+.add-task [type=submit],
+.task-item {
+    box-shadow: 2px 2px 3px rgba(0, 0, 0, .4);
+    cursor: pointer;
+}
+
+.add-task [type=submit]:hover {
+    background: #60CAFC;
+}
+
+.container {
+    position: relative;
+    max-width: 600px;
+    margin: 0 auto;
+    /*filter: blur(2px);*/
+}
+
+h1 {
+    text-align: center;
+}
+
+.task-list {
+    margin: 10px 0;
+}
+
+.task-item {
+    padding: 10px;
+    background: #fff;
+    color: #333;
+    margin-bottom: 5px;
+    border-radius: 5px;
+}
+
+.task-item:hover {
+    background: #ddd;
+}
+
+.task-detail,
+.task-detail-mask {
+    position: absolute;
+    display: none;
+}
+
+.task-detail {
+    width: 50%;
+    height: 100%;
+    color: #333;
+    bottom: 0;
+    right: 0;
+    padding: 10px;
+    background: #fff;
+}
+
+.task-detail .content {
+    padding: 10px;
+    font-weight: 900;
+    cursor: pointer;
+}
+.task-detail > * {
+    margin-bottom: 10px;
+}
+
+
+.task-detail-mask {
+    /*filter: blur(10px);*/
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(30, 30, 30, .2);
+}
+
+
+
