@@ -9,39 +9,24 @@
 <body>
 <div class="container">
     <h1>我的Todo</h1>
-    <div class="add-task">
-        <input type="text" placeholder="e.g. 下午记得买菜">
+    <form class="add-task">
+        <input
+                name="content"
+                type="text"
+                placeholder="e.g. 下午记得买菜"
+                autofocus
+                autocomplete="off"
+        >
         <button type="submit">submit</button>
-    </div>
+    </form>
 
     <div class="task-list">
-        <div class="task-item">
-            <span><input type="checkbox"></span>
-            <span class="task-content">item</span>
-            <span>delete</span>
-            <span>detail</span>
-        </div>
-
-        <div class="task-item">
-            <span><input type="checkbox"></span>
-            <span class="task-content">item</span>
-            <span>delete</span>
-            <span>detail</span>
-        </div>
-
-        <div class="task-item">
-            <span><input type="checkbox"></span>
-            <span class="task-content">item</span>
-            <span>delete</span>
-            <span>detail</span>
-        </div>
-
-        <div class="task-item">
-            <span><input type="checkbox"></span>
-            <span class="task-content">item</span>
-            <span>delete</span>
-            <span>detail</span>
-        </div>
+        <!--<div class="task-item">-->
+        <!--<span><input type="checkbox"></span>-->
+        <!--<span class="task-content">item</span>-->
+        <!--<span>delete</span>-->
+        <!--<span>detail</span>-->
+        <!--</div>-->
     </div>
     <div class="task-detail-mask"></div>
     <div class="task-detail">
@@ -58,6 +43,7 @@
     </div>
 </div>
 <script src="node_modules/jquery/dist/jquery.js"></script>
+<script src="node_modules/store/store.js"></script>
 <script src="js/base.js"></script>
 </body>
 </html>

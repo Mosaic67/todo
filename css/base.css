@@ -9,6 +9,10 @@ body {
     color: #fff;
 }
 
+.fr {
+    float: right;
+}
+
 input,
 .task-item,
 .task-detail-mask,
@@ -24,7 +28,6 @@ input[type=text],
 input[type=date] {
     border: 0;
 }
-
 
 textarea,
 input[type=text],
@@ -56,6 +59,10 @@ button {
     color: #333;
 }
 
+.add-task [type=submit]:active {
+    box-shadow: 1px 1px 2px 2px rgba(0, 0, 0, .5) inset;
+}
+
 .add-task input[type=text] {
     float: left;
     width: 84%;
@@ -81,6 +88,7 @@ button {
     position: relative;
     max-width: 600px;
     margin: 0 auto;
+    padding: 0 10px;
     /*filter: blur(2px);*/
 }
 
@@ -125,10 +133,10 @@ h1 {
     font-weight: 900;
     cursor: pointer;
 }
+
 .task-detail > * {
     margin-bottom: 10px;
 }
-
 
 .task-detail-mask {
     /*filter: blur(10px);*/
@@ -139,5 +147,18 @@ h1 {
     background: rgba(30, 30, 30, .2);
 }
 
+.action {
+    color: #888;
+    font-size: 90%;
+}
+
+.action:hover {
+    cursor: pointer;
+    color: #333;
+}
+
+.task-content {
+    margin-left: 10px;
+}
 
 
