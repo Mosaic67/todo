@@ -71,6 +71,7 @@ button {
     margin-right: 1%;
 }
 
+button.primary,
 [type=submit] {
     background: #46b1e4;
 }
@@ -125,6 +126,7 @@ h1 {
 .task-detail {
     width: 50%;
     height: 100%;
+    overflow: auto;
     color: #333;
     bottom: 0;
     right: 0;
@@ -182,5 +184,20 @@ h1 {
     display: block;
 }
 
+.msg {
+    display: none;
+    text-align: center;
+    background: #ffe264;
+    padding: 10px;
+    color: #333;
+}
 
-
+.anchor {
+    cursor: pointer;
+    display: block;
+    margin-top: 15px;
+}
+.alerter {
+    width: 0;
+    height:0;
+}
